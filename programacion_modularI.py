@@ -318,14 +318,15 @@ print(numerosMultiplos(numeros))
 #Ejercicio 10
 
 def conversorBinarioDecimal(n):
-    numeroDecimal=0
-    posicion=len(n)-2
+    numero_decimal = 0
+    posicion=len(numero)-1
 
-    for i in n:
-        n=int(i)
-        numeroDecimal+=n*2**posicion
-        posicion-=1
-        return numeroDecimal
+    for i in numero:
+        numero=int(i)
+        numero_decimal+=numero*2**posicion
+        posicion -= 1
+
+    return numero_decimal
 
 def conversorDecimalBinario(n):
     numeroBinario=0
