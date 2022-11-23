@@ -5,7 +5,6 @@ Realizado por:Yeray Herrería Oña
 '''
 '''
 #Ejercicio 1
-
 n=7
 
 def computaFactorial(n):
@@ -22,7 +21,6 @@ def computaFactorial(n):
 print(computaFactorial(n))
 
 #Ejercicio 2
-
 year=2017
 
 def esAñoBisiesto(year):
@@ -35,7 +33,6 @@ def esAñoBisiesto(year):
 print(esAñoBisiesto(year))
 
 #Ejercicio 3
-
 year=2022
 month=2
 
@@ -45,32 +42,31 @@ def esBisiesto(year):
 def computeDaysInMonth(month,year):
     diasMaximos=[31,28,31,30,31,30,31,31,30,31,30,31]
     resultado=""
-    
+   
     if (month<1 or month>12) or year<1:
-        resultado=-1 
+        resultado=-1
     else:
         resultado=diasMaximos[month-1]      
         if esBisiesto(year)==True:
             diasMaximos=[31,29,31,30,31,30,31,31,30,31,30,31]
             resultado=diasMaximos[month-1]
-                
+               
     return resultado
 
 print (computeDaysInMonth(month,year))
 
 #Ejercicio 4
-
 fecha=[]
 fecha.append(int(input("Introduzca un día:")))
 fecha.append(int(input("Introduzca un mes válido:")))
-fecha.append(int(input("Introduzca un año válido:"))) 
+fecha.append(int(input("Introduzca un año válido:")))
 
 def getDayOfWeek(fecha):
     week=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
     a=(14-fecha[1])//12
     y=fecha[2]-a
     m=fecha[1]+12*a-2
-    d=(fecha[0] + y + y//4 - y//100 + y//400 + (31*m)//12)%7   
+    d=(fecha[0] + y + y//4 - y//100 + y//400 + (31*m)//12)%7  
     return week[d]
 
 print(getDayOfWeek(fecha))
@@ -92,18 +88,30 @@ def powerIt(n1,n2):
 #Producto
 def powerIt(n1,n2):
     cont=1
-    
+   
     for i in range(n2):
         cont*=n1
-        
+       
     return cont
 
 print(powerIt(n1,n2))
 
+
 #Ejercicio 6
+n=12.1
+
+def getNumberOfDigits(n):
+    n=str(n)
+    cont=0
+
+    for i in range(len(n)):
+        if n[i]!="." and n[i]!="-" and n[i]!=" ":
+            cont+=1
+    return cont
+
+print(getNumberOfDigits(n))
 
 #Ejercicio 7
-
 def isPrimo(n):
     if n>0:
         resultado=True
@@ -111,39 +119,36 @@ def isPrimo(n):
             if n%i==0:
                 resultado=False
     else:
-        resultado="Ninguno."
+        resultado=None 
     return resultado
-            
+           
 n=int(input("Introduzca un número mayor que 0:"))
 
 print(isPrimo(n))
 
 #Ejercicio 8
-
 def solveSecondOrderEquation(a,b,c):
     opcion1=""
     opcion2=""
-    resultado=""
-    
+    resultado=None
+   
     if a>0 and b>0 and c>0:
-        opcion1=(-b + (((b)-(2*a*c))**0.5)/(2*a))
-        opcion2=(-b - (((b)-(2*a*c))**0.5)/(2*a))
-        
+        opcion1=(-b + (((b**2)-4*a*c)**0.5))/2*a
+        opcion2=(-b - (((b**2)-4*a*c)**0.5))/2*a
+       
         resultado=f"La primera solución es {opcion1} y la segunda es {opcion2}."
-    else:
-        resultado="Ninguno."
+
     return resultado
 
-a=3
-b=5
-c=1
+a=6
+b=4
+c=2
 
 print(solveSecondOrderEquation(a,b,c))
 
 #Ejercicio 9
-
 def getPrimeDivisors(n):
-    resultado=""
+    resultado=None
     divisores=[1]
     primos=[]
     if n>0:
@@ -159,8 +164,7 @@ def getPrimeDivisors(n):
                 if n > 0:
                     primos.append(n)
         resultado=primos
-    else:
-        resultado="Ninguno."
+        
     return resultado    
 
 n=100
@@ -168,21 +172,20 @@ n=100
 print(getPrimeDivisors(n))
 
 #Ejercicio 10
-
 n1=2620
 n2=2924
 
 def isFriendNumber(n1,n2):
     cont=1
     divisores=[]
-    resultado=False 
+    resultado=False
     if n1>0 and n2>0:
         for i in range(2,n1):
             if n1%i==0:
                 divisores.append(i)
                 cont+=i
         if cont==n2:
-            resultado=True 
+            resultado=True
     return resultado
 
 print(isFriendNumber(n1,n2))
