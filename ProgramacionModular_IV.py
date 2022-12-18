@@ -62,7 +62,8 @@ while opcion!="A" and opcion!="B" and opcion!="C" and opcion!="D":
 while opcion!="D":
     if opcion=="A":
         print(logearCuenta(usuarios, contrasenyas, intentos))          
-    elif opcion=="B":        print(agregarUsuario(usuarios, contrasenyas))
+    elif opcion=="B":
+        print(agregarUsuario(usuarios, contrasenyas))
     else:
         print(usuarios)
         
@@ -71,7 +72,7 @@ while opcion!="D":
     while opcion!="A" and opcion!="B" and opcion!="C" and opcion!="D":
         opcion=input("Error.Escribe la opcion que desees:").upper()
 print ("Programa finalizado.")
-'''
+
 
 #Ejercicio 1 CALCULO
 n=123
@@ -188,7 +189,8 @@ menu='''
 #   D.Dividir dos fracciones.        #
 #   E.Salir                          #
 #                                    #
-######################################'''
+######################################
+'''
 
 opcion=input("Escribe la opcion que desees:").upper()
 
@@ -227,4 +229,104 @@ while opcion!="E":
         opcion=input("Error.Escribe la opcion que desees:").upper()
 
 print("El programa a finalizado")
+
+#Ejercicio 1 FIGURAS
+radio=5
+def areaCirculo(radio):
+    import math
+    pi=math.pi
+    return pi*(radio*radio)
+
+#Ejercicio 2 FIGURAS
+def longitudCirculo(radio):
+    import math
+    pi=math.pi
+    return 2*pi*radio
+
+#Ejercicio 3 FIGURAS
+x1=1
+x2=5
+y1=1
+y2=4
+def distanciaEuclidea(x1,x2,y1,y2):
+    return ((x2-x1)**2 + (y2-y1)**2)**(0.5)
+
+#Ejercicio 4 FIGURAS
+x1=1
+x2=5
+x3=6
+y1=1
+y2=4
+y3=3
+def perimetroTriangulo(x1,x2,x3,y1,y2,y3):
+    lado1=((x2-x1)**2 + (y2-y1)**2)**(0.5)
+    lado2=((x3-x1)**2 + (y3-y1)**2)**(0.5)
+    lado3=((x3-x2)**2 + (y3-y2)**2)**(0.5)
+    return lado1+lado2+lado3
+
+#Ejercicio 5 FIGURAS
+def areaTriangulo(x1,x2,x3,y1,y2,y3):
+    return perimetroTriangulo(x1, x2, x3, y1, y2, y3)*0.5
+
+#Ejercicio 1 FECHAS
+#Primera hora
+hora=21
+minuto=0
+segundo=60
+
+def segundosTranscurridos(hora,minuto,segundo):
+    resultado="Formato no válido."
+    if 0<=hora<=23 and 0<=minuto<=59 and 0<=segundo<=59:
+        hora=hora*3600
+        minuto=minuto*60
+        resultado=hora+minuto+segundo
+    elif hora==24 and minuto==0 and segundo==0:
+        resultado=hora*3600
+    elif hora==23 and 0<=minuto<=60 and segundo==0:
+        hora=hora*3600
+        resultado=hora+segundo
+    elif hora==23 and minuto==0 and 0<=segundo<=60:
+        hora=hora*3600
+        minuto=minuto*60
+        resultado=hora+minuto
+    elif 0<=hora<=22 and 0<=minuto<=60 and segundo==60:
+        hora=hora*3600
+        minuto=minuto*60
+        resultado=hora+minuto+segundo
+    return resultado
+
+#Ejercicio 2 FECHAS
+#Segunda hora
+hora2=2
+minuto2=34
+segundo2=34
+def calcularDiferencia(hora,hora2,minuto,minuto2,segundo,segundo2):
+    resultado="Formato no válido."
+    if (0<=hora<=23 and 0<=minuto<=59 and 0<=segundo<=59) or (0<=hora2<=23 and 0<=minuto2<=59 and 0<=segundo2<=59):
+        resultado=f"La diferencia es de {segundosTranscurridos(hora,minuto,segundo)-segundosTranscurridos(hora2,minuto2,segundo2)} segundos."
+    elif (hora==24 and minuto==0 and segundo==0) or (hora2==24 and minuto2==0 and segundo2==0):
+        resultado=f"La diferencia es de {segundosTranscurridos(hora,minuto,segundo)-segundosTranscurridos(hora2,minuto2,segundo2)} segundos."
+    elif (hora==23 and 0<=minuto<=60 and segundo==0) or (hora2==23 and 0<=minuto2<=60 and segundo2==0):
+        resultado=f"La diferencia es de {segundosTranscurridos(hora,minuto,segundo)-segundosTranscurridos(hora2,minuto2,segundo2)} segundos."
+    elif (hora==23 and minuto==0 and 0<=segundo<=60) or (hora2==23 and minuto2==0 and 0<=segundo2<=60):
+        resultado=f"La diferencia es de {segundosTranscurridos(hora,minuto,segundo)-segundosTranscurridos(hora2,minuto2,segundo2)} segundos."
+    elif (0<=hora<=22 and 0<=minuto<=60 and segundo==60) or (0<=hora2<=22 and 0<=minuto2<=60 and segundo2==60):
+        resultado=f"La diferencia es de {segundosTranscurridos(hora,minuto,segundo)-segundosTranscurridos(hora2,minuto2,segundo2)} segundos."
+
+    return resultado
+
+#Ejercicio 3 FECHAS
+seconds=223000
+
+def convertirSegundos(seconds):
+    day=seconds//(60*60*24)
+    seconds=seconds%(60*60*24)
+    hours=seconds//(60*60)
+    seconds=seconds%(60*60)
+    minutes=seconds//60
+    seconds=seconds%60
+
+    return f"En total son {day} días con {hours} horas {minutes} minutos y {seconds} segundos."
+print(convertirSegundos(seconds))
+'''
 
